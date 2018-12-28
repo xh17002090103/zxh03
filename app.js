@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'static')));    // 设置静态文�
 
 
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:13131");
+    res.header("Access-Control-Allow-Origin", "http://10.30.29.53:63341");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     //res.header( 'Content-Type',"text/html; charset=gbk");
@@ -38,7 +38,7 @@ app.all('*', function(req, res, next) {
 // 登录页面
 app.get('/login.html', function (req, res) {
 
-   res.setHeader('content-type', "text/html; charset=gbk");
+    res.setHeader('content-type', "text/html; charset=gbk");
     res.render('login');
 });
 // 个人信息页面
@@ -48,8 +48,8 @@ app.get('/personal.html', function (req, res) {
     }
     else {
         //向浏览器写入cookie，注意cookie有时间限制
-       // res.cookie('username',req.session.user.name
-         //   , { expires: new Date(Date.now() + 10000), httpOnly: false });
+        // res.cookie('username',req.session.user.name
+        //   , { expires: new Date(Date.now() + 10000), httpOnly: false });
         console.log(req.session.user.id, req.session.user.name)
         res.render('personal');
     }
