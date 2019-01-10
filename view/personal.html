@@ -46,13 +46,23 @@
             dataType: 'json',
             xhrFields:{withCredentials:true},
             success: function (res) {
-                $('#userName').html(res.userName);
+                if (res.message === 'success') {
+                    $('#userName').html(res.userName);
+                }
+                else if (res.message === 'error') {
+                    location.href = 'unlogin.html';
+                }
+                // if($('#userName').html(res.userName)==null ){
+                //     $('#userName').html(res.userName)
+                // }else{
+                //     location.href = 'personal.html';
+                // };
             }
         })
 
         $('#btnLogout').click(function () {
             $.ajax({
-                url: 'http://localhost:3000/logout',
+                url: 'http://10.30.29.54/logout.php.',
                 type: 'GET',
                 contentType: 'application/json;charset=utf-8',
                 xhrFields:{withCredentials:true},
